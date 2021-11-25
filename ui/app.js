@@ -2683,9 +2683,9 @@ $(document).ready(() => {
             if (value) {
                 const prio = value['priority']
                 console.log(prio)
-                let DispatchItem = `<div class="active-calls-item" data-id="${value.ctxId}" data-x="${value.origin.x}" data-y="${value.origin.y}" data-canrespond="false"><div class="active-call-inner-container"><div class="call-item-top"><div class="call-number">#${value.ctxId}</div><div class="call-code priority-${value.priority}">${value.dispatchCode}</div><div class="call-title">${value.dispatchMessage}</div><div class="call-radio">${value.units.length}</div></div><div class="call-item-bottom">`
-                if (value.dispatchCode == "911" || value.dispatchCode == "311" || value.dispatchCode == "10-13A") {
-                    DispatchItem = `<div class="active-calls-item" data-id="${value.ctxId}"  data-x="${value.origin.x}" data-y="${value.origin.y}" data-canrespond="true"><div class="active-call-inner-container"><div class="call-item-top"><div class="call-number">#${value.ctxId}</div><div class="call-code priority-${value.priority}">${value.dispatchCode}</div><div class="call-title">${value.dispatchMessage}</div><div class="call-radio">${value.units.length}</div></div><div class="call-item-bottom">`
+                let DispatchItem = `<div class="active-calls-item" data-id="${value.ctxId}" data-x="${value.coords.x}" data-y="${value.coords.y}" data-canrespond="false"><div class="active-call-inner-container"><div class="call-item-top"><div class="call-number">#${value.caller}</div><div class="call-code priority-${prio}">${value.dispatchCode}</div><div class="call-title">${value.dispatchMessage}</div><div class="call-radio">${value.units.length}</div></div><div class="call-item-bottom">`
+                if (value.dispatchCode == "911" || value.dispatchCode == "311" || value.dispatchCode == "10-13A" || value.dispatchCode == "211") {
+                    DispatchItem = `<div class="active-calls-item" data-id="${value.ctxId}"  data-x="${value.coords.x}" data-y="${value.coords.y}" data-canrespond="true"><div class="active-call-inner-container"><div class="call-item-top"><div class="call-number">#${value.caller}</div><div class="call-code priority-${prio}">${value.dispatchCode}</div><div class="call-title">${value.dispatchMessage}</div><div class="call-radio">${value.units.length}</div></div><div class="call-item-bottom">`
                 }
 
                 if (value['time']) {
@@ -2781,10 +2781,10 @@ $(document).ready(() => {
             $.each(table, function(index, value) {
                 if (value) {
                     const prio = value['priority']
-                    let DispatchItem = `<div class="active-calls-item" data-id="${value.callId}" data-canrespond="false"><div class="active-call-inner-container"><div class="call-item-top"><div class="call-number">#${value.callId}</div><div class="call-code priority-${value.priority}">${value.dispatchCode}</div><div class="call-title">${value.dispatchMessage}</div><div class="call-radio">${value.units.length}</div></div><div class="call-item-bottom">`
+                    let DispatchItem = `<div class="active-calls-item" data-id="${value.callId}" data-canrespond="false"><div class="active-call-inner-container"><div class="call-item-top"><div class="call-number">#${value.callId}</div><div class="call-code priority-${prio}">${value.dispatchCode}</div><div class="call-title">${value.dispatchMessage}</div><div class="call-radio">${value.units.length}</div></div><div class="call-item-bottom">`
 
-                    if (value.dispatchCode == "911" || value.dispatchCode == "311") {
-                        DispatchItem = `<div class="active-calls-item" data-id="${value.callId}" data-canrespond="true"><div class="active-call-inner-container"><div class="call-item-top"><div class="call-number">#${value.callId}</div><div class="call-code priority-${value.priority}">${value.dispatchCode}</div><div class="call-title">${value.dispatchMessage}</div><div class="call-radio">${value.units.length}</div></div><div class="call-item-bottom">`
+                    if (value.dispatchCode == "911" || value.dispatchCode == "311" || value.dispatchCode == "10-13A" || value.dispatchCode == "211") {
+                        DispatchItem = `<div class="active-calls-item" data-id="${value.callId}" data-canrespond="true"><div class="active-call-inner-container"><div class="call-item-top"><div class="call-number">#${value.callId}</div><div class="call-code priority-${prio}">${value.dispatchCode}</div><div class="call-title">${value.dispatchMessage}</div><div class="call-radio">${value.units.length}</div></div><div class="call-item-bottom">`
                     }
 
                     if (value['time']) {

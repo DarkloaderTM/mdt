@@ -1026,7 +1026,7 @@ RegisterServerEvent("np-mdt:callDispatchDetach")
 AddEventHandler("np-mdt:callDispatchDetach", function(callid, cid)
     local src = source
     local xPlayer = ESX.GetPlayerFromId(src)
-    local id = tonumber(callid)
+    local id = callid
 
     attachedUnits[id][cid] = nil
 
@@ -1045,7 +1045,7 @@ AddEventHandler("np-mdt:setWaypoint:unit", function(cid)
     if targetPlayer == false then
         return
     end
-    local coords = targetPlayer.getcoords
+    local coords = targetPlayer.getCoords(true)
     TriggerClientEvent("np-mdt:setWaypoint:unit", src, coords)
 end)
 
@@ -1056,7 +1056,7 @@ AddEventHandler("np-mdt:setDispatchWaypoint", function(callid, cid)
     if targetPlayer == false then
         return
     end
-    local coords = targetPlayer.getcoords
+    local coords = targetPlayer.getCoords(true)
     TriggerClientEvent("np-mdt:setWaypoint:unit", src, coords)
 end)
 
