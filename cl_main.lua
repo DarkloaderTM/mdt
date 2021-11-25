@@ -933,8 +933,8 @@ end)
 
 RegisterNetEvent('dispatch:clNotify')
 AddEventHandler('dispatch:clNotify', function(sNotificationData, sNotificationId)
-    print(ESX.DumpTable(sNotificationData))
-    print(sNotificationId)
+    --print(ESX.DumpTable(sNotificationData))
+    --print(sNotificationId)
     sNotificationData.callId = sNotificationId
     SendNUIMessage({ type = "call", data = sNotificationData })
 end)
